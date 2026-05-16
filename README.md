@@ -1,5 +1,7 @@
 ## Frontend for Hearth
 
-This repository contains user interface (frontend) for Hearth. It communicates with the backend via API.
+[![MIT License](https://img.shields.io/badge/license-MIT-9370d8.svg?style=flat)](https://opensource.org/licenses/MIT)
+
+This repository contains the user interface (frontend) for Hearth. It communicates with the backend via API.
 
 TODO
