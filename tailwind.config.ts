@@ -1,13 +1,15 @@
 export default {
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        background: "#232323",
-        "foreground-primary": "#ffffff",
-        "foreground-secondary": "#9d9d9d",
-        primary: "#0084ff",
-        secondary: "#69b3ff",
-        panel: "#313131",
+        background: "var(--color-background)",
+        "foreground-primary": "var(--color-foreground-primary)",
+        "foreground-secondary": "var(--color-foreground-secondary)",
+        primary: "var(--color-primary)",
+        "primary-contrast": "var(--color-primary-contrast)",
+        secondary: "var(--color-secondary)",
+        panel: "var(--color-panel)",
       },
     },
   },

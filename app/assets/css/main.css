@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: #ffffff;
+  --color-foreground-primary: #000000;
+  --color-foreground-secondary: #606060;
+  --color-primary: #00619a;
+  --color-primary-contrast: #ffffff;
+  --color-secondary: #59a5f5;
+  --color-panel: #e0e0e0;
+}
+
+.dark {
+  --color-background: #232323;
+  --color-foreground-primary: #ffffff;
+  --color-foreground-secondary: #9d9d9d;
+  --color-primary: #0084ff;
+  --color-secondary: #69b3ff;
+  --color-panel: #313131;
+}
+
+@layer base {
+  body {
+    @apply bg-background;
+    @apply text-foreground-primary;
+  }
+}
