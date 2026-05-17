@@ -8,5 +8,5 @@ withDefaults(
 </script>
 
 <template>
-  <div :class="['bg-panel', { 'h-[1px]': !vertical, 'w-[1px]': vertical }]" />
+  <div :class="['bg-panel', vertical ? 'w-[1px]' : 'h-[1px]']" />
 </template>
