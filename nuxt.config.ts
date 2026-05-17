@@ -7,5 +7,5 @@ export default defineNuxtConfig({
     viteEnvironmentApi: true,
   },
 
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxt/icon", "@nuxtjs/tailwindcss"],
 })
