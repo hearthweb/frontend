@@ -16,8 +16,8 @@ const isActive = computed(() => route.path.startsWith(props.path))
 </script>
 
 <template>
-  <a
-    :href="path"
+  <NuxtLink
+    :to="path"
     :class="[
       'flex',
       'gap-x-2',
@@ -34,5 +34,5 @@ const isActive = computed(() => route.path.startsWith(props.path))
   >
     <Icon :name="icon" />
     {{ label }}
-  </a>
+  </NuxtLink>
 </template>

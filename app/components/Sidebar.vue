@@ -3,7 +3,7 @@
     <div class="flex gap-x-4 m-8">
       <img src="https://placehold.co/48x48" class="rounded-full" />
       <div>
-        <a href="/" class="text-xl">Hearth</a>
+        <NuxtLink to="/" class="text-xl">Hearth</NuxtLink>
         <div class="text-sm text-foreground-secondary">Welcome, username!</div>
       </div>
     </div>
