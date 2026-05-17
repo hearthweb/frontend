@@ -22,7 +22,8 @@ const isActive = computed(() => route.path.startsWith(props.path))
       'flex',
       'gap-x-2',
       'items-center',
-      'p-2',
+      'px-4',
+      'py-2',
       'hover:bg-panel',
       'rounded',
       {
