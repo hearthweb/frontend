@@ -6,7 +6,7 @@
     <input
       type="{{ type }}"
       name="{{ name }}"
-      class="w-full rounded border border-panel p-2 text-sm focus:outline focus:outline-2 focus:outline-foreground-primary"
+      class="w-full rounded border border-panel bg-background p-2 text-sm focus:outline focus:outline-2 focus:outline-foreground-primary"
       :placeholder
     />
   </div>
