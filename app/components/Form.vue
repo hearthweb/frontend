@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-y-8">
+  <form @submit.prevent="onSubmit" class="flex flex-col gap-y-8">
     <div>
       <div class="text-xl">{{ title }}</div>
       <div class="text-sm text-foreground-secondary">{{ description }}</div>
@@ -10,10 +10,12 @@
     <Buttons>
       <Button>{{ action }}</Button>
     </Buttons>
-  </div>
+  </form>
 </template>
 
 <script setup lang="ts">
+import { useForm } from "vee-validate"
+
 withDefaults(
   defineProps<{
     title: string
@@ -24,4 +26,10 @@ withDefaults(
     action: "Submit",
   },
 )
+
+const { handleSubmit } = useForm()
+
+const onSubmit = handleSubmit(async (values) => {
+  console.log(values)
+})
 </script>
