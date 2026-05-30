@@ -14,7 +14,8 @@
     "prettier-plugin-tailwindcss": "^0.8.0"
   },
   "dependencies": {
-    "openapi-fetch": "^0.17.0"
+    "openapi-fetch": "^0.17.0",
+    "vee-validate": "^4.15.1"
   },
   "packageManager": "pnpm@9.0.0"
 }
