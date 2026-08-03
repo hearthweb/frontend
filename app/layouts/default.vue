@@ -1,45 +1,25 @@
 <template>
-  <div class="flex flex-1 flex-col">
-    <div class="dark">
-      <UHeader
-        toggle-side="left"
-        title="Hearth"
-        :ui="{
-          container: 'm-0 px-4!',
-        }"
-      >
-        <template #toggle>
-          <UButton
-            icon="i-lucide-panel-left"
-            color="neutral"
-            variant="ghost"
-            aria-label="Toggle sidebar"
-            @click="open = !open"
-          />
-        </template>
-      </UHeader>
-    </div>
-    <div class="flex min-h-0 flex-1">
-      <USidebar
-        v-model:open="open"
-        collapsible="offcanvas"
-        :ui="{
-          gap: 'h-[calc(100%-var(--ui-header-height))]',
-          container:
-            'bg-neutral-50 absolute top-(--ui-header-height) bottom-0 h-[calc(100%-var(--ui-header-height))]',
-        }"
-      >
+  <UDashboardGroup>
+    <UDashboardSidebar
+      v-model:open="open"
+      collapsible
+      class="bg-elevated/25"
+      :ui="{ footer: 'lg:border-t lg:border-default' }"
+    >
+      <template #header>
+        <p>Hearth</p>
+      </template>
+      <template #default>
         <UNavigationMenu
           :items="items"
           orientation="vertical"
-          :ui="{ link: 'overflow-hidden' }"
+          tooltip
+          popover
         />
-      </USidebar>
-      <div class="flex-1 p-4">
-        <slot />
-      </div>
-    </div>
-  </div>
+      </template>
+    </UDashboardSidebar>
+    <slot />
+  </UDashboardGroup>
 </template>
 
 <script setup lang="ts">
