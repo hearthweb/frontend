@@ -1,8 +1,7 @@
 {
   "recommendations": [
-    "editorconfig.editorconfig",
-    "vue.volar",
     "bradlc.vscode-tailwindcss",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "vue.volar"
   ]
 }

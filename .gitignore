@@ -1,5 +1,5 @@
 /.nuxt
 /.output
-/app/types/api.d.ts
+/app/client
 /dist
 /node_modules
