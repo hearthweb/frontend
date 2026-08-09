@@ -39,7 +39,12 @@ RUN --mount=type=cache,target=/pnpm/store \
 
 FROM caddy:${CADDY_VERSION}-alpine
 
+# Copy the Caddy configuration
 COPY Caddyfile /etc/caddy/Caddyfile
+
+# Attempt to load the /login page as a healthcheck
+HEALTHCHECK --timeout=1s \
+    CMD curl -sfL -o /dev/null http://localhost:8000/login
 
 # Copy the files from the builder
 COPY --from=builder /app/.output/public /srv
