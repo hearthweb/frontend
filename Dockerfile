@@ -1,4 +1,9 @@
-FROM ghcr.io/pnpm/pnpm:11.20.0 AS builder
+ARG NODE_VERSION=24.19.0
+ARG PNPM_VERSION=11.20.0
+ARG NGINX_VERSION=1.31.3
+
+
+FROM ghcr.io/pnpm/pnpm:${PNPM_VERSION} AS builder
 
 # Set the working directory
 WORKDIR /app
@@ -8,7 +13,7 @@ ENV NODE_ENV=production
 
 # Install Node.js
 RUN --mount=type=cache,target=/pnpm/store \
-    pnpm runtime set node 24 -g
+    pnpm runtime set node ${NODE_VERSION} -g
 
 # Install Node.js and project dependencies
 RUN --mount=type=cache,target=/pnpm/store \
@@ -32,7 +37,7 @@ RUN --mount=type=cache,target=/pnpm/store \
     pnpm generate
 
 
-FROM nginxinc/nginx-unprivileged:1.31.3-alpine
+FROM nginxinc/nginx-unprivileged:${NGINX_VERSION}-alpine
 
 # Copy the Nginx configuration file
 COPY --chown=nginx:nginx nginx.conf /etc/nginx/conf.d/default.conf
