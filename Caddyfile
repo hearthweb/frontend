@@ -1,0 +1,21 @@
+:8000 {
+    root * /srv
+
+    # Forward API requests to the backend
+    handle_path /api/* {
+        reverse_proxy http://backend:8000 {
+            header_up X-Real-IP {remote_host}
+        }
+    }
+
+    # Aggressively cache the Nuxt files since they are keyed on hash
+    handle /_nuxt/* {
+        header Cache-Control "public, immutable, max-age=31536000"
+        file_server
+    }
+
+    handle {
+        try_files {path} {path}/ /index.html
+        file_server
+    }
+}

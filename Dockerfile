@@ -1,6 +1,6 @@
 ARG NODE_VERSION=24.19.0
 ARG PNPM_VERSION=11.20.0
-ARG NGINX_VERSION=1.31.3
+ARG CADDY_VERSION=2.11.4
 
 
 FROM ghcr.io/pnpm/pnpm:${PNPM_VERSION} AS builder
@@ -22,7 +22,7 @@ RUN --mount=type=cache,target=/pnpm/store \
     pnpm install --frozen-lockfile
 
 # Copy the source files
-COPY . .
+COPY --exclude=Caddyfile . .
 
 # Generate .nuxt directory
 RUN --mount=type=cache,target=/pnpm/store \
@@ -37,10 +37,9 @@ RUN --mount=type=cache,target=/pnpm/store \
     pnpm generate
 
 
-FROM nginxinc/nginx-unprivileged:${NGINX_VERSION}-alpine
+FROM caddy:${CADDY_VERSION}-alpine
 
-# Copy the Nginx configuration file
-COPY --chown=nginx:nginx nginx.conf /etc/nginx/conf.d/default.conf
+COPY Caddyfile /etc/caddy/Caddyfile
 
 # Copy the files from the builder
-COPY --from=builder --chown=nginx:nginx /app/.output/public /usr/share/nginx/html
+COPY --from=builder /app/.output/public /srv
