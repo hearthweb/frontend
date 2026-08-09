@@ -22,7 +22,7 @@ RUN --mount=type=cache,target=/pnpm/store \
     pnpm install --frozen-lockfile
 
 # Copy the source files
-COPY --exclude=Caddyfile . .
+COPY . .
 
 # Generate .nuxt directory
 RUN --mount=type=cache,target=/pnpm/store \
