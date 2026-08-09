@@ -1,0 +1,11 @@
+/.nuxt/
+/.output/
+/.vscode/
+/app/client/
+/dist/
+/node_modules/
+/.dockerignore
+/.gitignore
+/Dockerfile
+/LICENSE.txt
+/README.md
