@@ -1,5 +1,5 @@
-/.nuxt
-/.output
-/app/client
+/.nuxt/
+/.output/
+/app/client/
+/node_modules/
 /dist
-/node_modules
