@@ -3,8 +3,13 @@
 
     # Forward API requests to the backend
     handle_path /api/* {
-        reverse_proxy http://backend:8000 {
+        reverse_proxy {
             header_up X-Real-IP {remote_host}
+            dynamic a {
+                name backend
+                port 8000
+            }
+            lb_policy round_robin
         }
     }
 
