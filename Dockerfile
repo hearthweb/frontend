@@ -43,7 +43,7 @@ FROM caddy:${CADDY_VERSION}-alpine
 COPY Caddyfile /etc/caddy/Caddyfile
 
 # Attempt to load the /login page as a healthcheck
-HEALTHCHECK --timeout=1s \
+HEALTHCHECK --interval=1m --start-interval=2s --start-period=1m --timeout=1s \
     CMD curl -sfL -o /dev/null http://localhost:8000/login
 
 # Copy the files from the builder
